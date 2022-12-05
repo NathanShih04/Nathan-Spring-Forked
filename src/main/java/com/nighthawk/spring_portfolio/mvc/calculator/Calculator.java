@@ -27,6 +27,7 @@ public class Calculator {
         // Map<"token", precedence>
         OPERATORS.put("log", 5);
         OPERATORS.put("exp", 2);
+        OPERATORS.put("ncr", 2);
         OPERATORS.put("^", 2);
         OPERATORS.put("*", 3);
         OPERATORS.put("/", 3);
@@ -155,6 +156,7 @@ public class Calculator {
                 case "%":
                 case "^":
                 case "log":
+                case "ncr":
                 case "exp":
                     // While stack has stuff and the top of the stack is an operator
                     while (tokenStack.size() > 0 && isOperator(tokenStack.peek()))
@@ -229,6 +231,21 @@ public class Calculator {
                         result = b % a;
                         break;
                     case "^":
+                    case "ncr":
+                        int nFac = 1;
+                        for (int i = 1; i <= b; i++) {
+                            nFac = nFac * i;
+                        }
+                        int rFac = 1;
+                        for (int i = 1; i <= a; i++) {
+                            rFac = rFac * i;
+                        }
+                        int nMinusRFac = 1;
+                        for (int i = 1; i <= b-a; i++) {
+                            nMinusRFac=  nMinusRFac * i;
+                        }
+                        result = (double) nFac/(rFac * nMinusRFac);
+                        break;
                     case "log":
                         result = (Math.log(a) / Math.log(b));
                         break;
