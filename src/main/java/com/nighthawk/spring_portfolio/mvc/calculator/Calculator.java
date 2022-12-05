@@ -110,6 +110,25 @@ public class Calculator {
         }
     }
 
+    private boolean parenthesesCheck() {
+        int leftParentheses = 0;
+        int rightParentheses = 0;
+        for (int i = 0; i < this.expression.length(); i++) {
+            if (this.expression.charAt(i) == '(') {
+                leftParentheses++;
+            } else if (this.expression.charAt(i) == ')') {
+                rightParentheses++;
+            }
+        }
+
+        if (leftParentheses != rightParentheses) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     // Conversion to Reverse Polish Notation (RPN), the operator follows its operands.
     private void tokensToReversePolishNotation () {
         this.reverse_polish = new ArrayList<>();
@@ -244,7 +263,7 @@ public class Calculator {
     }
 
     public String toString() {
-        return ( "{ \"Expression\": \"" + this.expression + "\", \"Tokens\": \"" + this.tokens + "\", \"RPN\": \"" + this.reverse_polish + "\", \"Result\": " + this.result + " }" );
+        return ( "{ \"Expression\": \""  + this.expression + "\", \"Tokens\": \"" + this.tokens + "\", \"RPN\": \"" + this.reverse_polish + "\", \"Result\": " + this.result + " }" );
     }
     
 }
