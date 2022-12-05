@@ -53,6 +53,9 @@ public class Calculator {
         // parse expression into terms
         this.termTokenizer();
 
+        // parenthesis check
+        this.parenthesesCheck();
+
         // place terms into reverse polish notation
         this.tokensToReversePolishNotation();
 
@@ -123,10 +126,10 @@ public class Calculator {
         }
 
         if (leftParentheses != rightParentheses) {
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
 
@@ -196,17 +199,14 @@ public class Calculator {
 
     }
 
-    private void rpnToResult()
-    {
+    private void rpnToResult() {
         // stack holds operands and calculations
         Stack<Double> calcStack = new Stack<Double>();
 
         // RPN processes and calcStack has final result
-        for (String token : this.reverse_polish)
-        {
+        for (String token : this.reverse_polish) {
             // token operator --> Calculator
-            if (isOperator(token))
-            {
+            if (isOperator(token)) {
                               
                 // Pop top two entries
                 double a = calcStack.pop();
@@ -280,7 +280,7 @@ public class Calculator {
     }
 
     public String toString() {
-        return ( "{ \"Expression\": \""  + this.expression + "\", \"Tokens\": \"" + this.tokens + "\", \"RPN\": \"" + this.reverse_polish + "\", \"Result\": " + this.result + " }" );
+        return ( "{ \"Expression\": \""  + this.expression + "\", \"Parenthesis Check\": \""+ this.parenthesesCheck() + "\", \"Tokens\": \"" + this.tokens + "\", \"RPN\": \"" + this.reverse_polish + "\", \"Result\": " + this.result + " }" );   
     }
     
 }
