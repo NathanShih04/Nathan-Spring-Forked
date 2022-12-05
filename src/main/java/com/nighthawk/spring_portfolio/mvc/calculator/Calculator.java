@@ -30,8 +30,8 @@ public class Calculator {
         OPERATORS.put("ncr", 2);
         OPERATORS.put("^", 2);
         OPERATORS.put("*", 3);
-        OPERATORS.put("/", 3);
-        OPERATORS.put("%", 3);
+        OPERATORS.put("d", 3);
+        OPERATORS.put("m", 3);
         OPERATORS.put("+", 4);
         OPERATORS.put("-", 4);
     }
@@ -155,8 +155,8 @@ public class Calculator {
                 case "+":
                 case "-":
                 case "*":
-                case "/":
-                case "%":
+                case "d":
+                case "m":
                 case "^":
                 case "log":
                 case "ncr":
@@ -174,7 +174,7 @@ public class Calculator {
                     tokenStack.push(token);
                     break;
                 case "pi":
-                    // pi gets replaced 3.14
+                    // pi gets replaced 3.1415  
                     this.reverse_polish.add("3.1415");
                     break;
                 default: 
@@ -224,10 +224,10 @@ public class Calculator {
                     case "*":
                         result = b * a;
                         break; 
-                    case "/":
+                    case "d":
                         result = b / a;
                         break;
-                    case "%":
+                    case "m":
                         result = b % a;
                         break;
                     case "^":
