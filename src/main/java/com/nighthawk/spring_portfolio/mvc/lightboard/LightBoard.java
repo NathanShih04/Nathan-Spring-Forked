@@ -164,13 +164,13 @@ public class LightBoard {
     static public void main(String[] args) {
         // create and display LightBoard
         Scanner scan = new Scanner(System.in);
-        System.out.println("enter number of rows");
+        System.out.println("Number of rows: ");
         int bRows = scan.nextInt();
-        System.out.println("enter number of columns");
+        System.out.println("Number of columns: ");
         int bCols = scan.nextInt();
-        System.out.println("enter height dimension of the boxes");
+        System.out.println("Height dimension of the boxes: ");
         int bHeight = scan.nextInt();
-        System.out.println("enter length dimension of the boxes");
+        System.out.println("Length dimension of the boxes: ");
         int bLength = scan.nextInt();
         LightBoard lightBoard = new LightBoard(bRows, bCols);
         
