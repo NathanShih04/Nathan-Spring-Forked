@@ -126,7 +126,7 @@ public class LightBoard {
     
     public void image(String image) {
 
-        if(image == "Christmas") {
+        if(image == "Tree") {
             short rv = 255;
             short gv = 0;
             short bv = 0;
@@ -146,10 +146,60 @@ public class LightBoard {
                     lights[rows][cols].RGBset(r,g,b);
                 }
             }
-
+            for (int rows = 3; rows < 4; rows++) {
+                for (int cols = 2; cols < 7; cols++) {
+                    lights[rows][cols].RGBset(r,g,b);
+                }
+            }
+            short rs = 150;
+            short gs = 75;
+            short bs = 0;
             // stem and top of tree
+            for (int rows = 4; rows < 5; rows++) {
+                for (int colz = 4; colz < 5; colz++) {
+                    lights[rows][colz].RGBset(rs,gs,bs);
+                }
+            } 
+        } 
+
+        if(image == "Turtle") {
+            short rv = 0;
+            short gv = 0;
+            short bv = 255;
+
+            for (int rows = 0; rows < 5; rows++) {
+                for (int cols = 0; cols < 9; cols++) {
+                    lights[rows][cols].RGBset(rv,gv,bv);
+                }
+            } 
+            short r = 0;
+            short g = 255;
+            short b = 0;
+
+            // shell
+            for (int rows = 1; rows < 4; rows++) {
+                for (int cols = 2; cols < 6; cols++) {
+                    lights[rows][cols].RGBset(r,g,b);
+                }
+            }
+
+            // flipper of tort
             for (int rows = 0; rows < 5; rows++) {
                 for (int colz = 4; colz < 5; colz++) {
+                    lights[rows][colz].RGBset(r,g,b);
+                }
+            } 
+
+            // head
+            for (int rows = 2; rows < 3; rows++) {
+                for (int colz = 6; colz < 7; colz++) {
+                    lights[rows][colz].RGBset(r,g,b);
+                }
+            } 
+
+            // legs
+            for (int rows = 0; rows < 5; rows += 4) {
+                for (int colz = 1; colz < 2; colz++) {
                     lights[rows][colz].RGBset(r,g,b);
                 }
             } 
@@ -182,7 +232,9 @@ public class LightBoard {
         System.out.println(lightBoard.toColorPalette(bHeight, bLength));
         
         LightBoard imageBoard = new LightBoard(5, 9);
-        imageBoard.image("Christmas");
+        imageBoard.image("Tree");
+        System.out.println(imageBoard.toColorPalette(4, 4));
+        imageBoard.image("Turtle");
         System.out.println(imageBoard.toColorPalette(4, 4));
     }
 }
