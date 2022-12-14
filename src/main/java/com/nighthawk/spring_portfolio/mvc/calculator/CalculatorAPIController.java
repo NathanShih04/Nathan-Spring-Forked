@@ -12,8 +12,9 @@ public class CalculatorAPIController {
     @GetMapping("/{expression}")
     public ResponseEntity<String> getResult(@PathVariable String expression) {
 
-        // Returns jsonified result of expression with tokens and everything
+        // Creating object calc from the Calculator class
         Calculator calc = new Calculator(expression);
+        // Calls toString
         String result = calc.toString();
         if (result != null) {
             return new ResponseEntity<String>(result, HttpStatus.OK);
