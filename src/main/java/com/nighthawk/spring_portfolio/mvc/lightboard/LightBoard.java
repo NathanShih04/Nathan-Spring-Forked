@@ -154,10 +154,20 @@ public class LightBoard {
             short rs = 150;
             short gs = 75;
             short bs = 0;
-            // stem and top of tree
+            // stem
             for (int rows = 4; rows < 5; rows++) {
                 for (int colz = 4; colz < 5; colz++) {
                     lights[rows][colz].RGBset(rs,gs,bs);
+                }
+            }
+            
+            short re = 255;
+            short ge = 255;
+            short be = 0;
+            // star at top 
+            for (int rows = 0; rows < 1; rows++) {
+                for (int colz = 4; colz < 5; colz++) {
+                    lights[rows][colz].RGBset(re,ge,be);
                 }
             } 
         } 
