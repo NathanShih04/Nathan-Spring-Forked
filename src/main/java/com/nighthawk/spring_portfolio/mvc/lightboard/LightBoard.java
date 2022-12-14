@@ -182,9 +182,34 @@ public class LightBoard {
                     lights[rows][cols].RGBset(rv,gv,bv);
                 }
             } 
-            short r = 0;
-            short g = 255;
-            short b = 0;
+
+            short rs = 1;
+            short gs = 200;
+            short bs = 32;
+            // flipper of tort
+            for (int rows = 0; rows < 5; rows++) {
+                for (int colz = 4; colz < 5; colz++) {
+                    lights[rows][colz].RGBset(rs,gs,bs);
+                }
+            } 
+
+            // head
+            for (int rows = 2; rows < 3; rows++) {
+                for (int colz = 6; colz < 7; colz++) {
+                    lights[rows][colz].RGBset(rs,gs,bs);
+                }
+            } 
+
+            // legs
+            for (int rows = 1; rows < 4; rows += 2) {
+                for (int colz = 1; colz < 2; colz++) {
+                    lights[rows][colz].RGBset(rs,gs,bs);
+                }
+            } 
+
+            short r = 1;
+            short g = 100;
+            short b = 32;
 
             // shell
             for (int rows = 1; rows < 4; rows++) {
@@ -192,27 +217,6 @@ public class LightBoard {
                     lights[rows][cols].RGBset(r,g,b);
                 }
             }
-
-            // flipper of tort
-            for (int rows = 0; rows < 5; rows++) {
-                for (int colz = 4; colz < 5; colz++) {
-                    lights[rows][colz].RGBset(r,g,b);
-                }
-            } 
-
-            // head
-            for (int rows = 2; rows < 3; rows++) {
-                for (int colz = 6; colz < 7; colz++) {
-                    lights[rows][colz].RGBset(r,g,b);
-                }
-            } 
-
-            // legs
-            for (int rows = 0; rows < 5; rows += 4) {
-                for (int colz = 1; colz < 2; colz++) {
-                    lights[rows][colz].RGBset(r,g,b);
-                }
-            } 
         } 
 
     }
