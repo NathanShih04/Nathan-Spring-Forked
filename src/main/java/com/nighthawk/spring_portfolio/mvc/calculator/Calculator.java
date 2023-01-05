@@ -99,7 +99,7 @@ public class Calculator {
                 if (c != ' ') {
                     tokens.add(c.toString());
                 }
-                // preparing for next term
+                // prepares for next term
                 start = i + 1;
                 multiCharTerm = new StringBuilder();
             } else {
